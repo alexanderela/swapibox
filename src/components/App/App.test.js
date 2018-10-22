@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow, mount } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
-import DataCleaner from '../../DataCleaner.js';
+import * as DataCleaner from '../../DataCleaner.js';
 import CardContainer from '../CardContainer/CardContainer.js';
 import Nav from '../Nav/Nav.js';
 import films from '../../mockData/mockFilms.js';
@@ -227,80 +227,60 @@ describe('App component', () => {
 	})
 
 	describe('getFilm', () => {
-		beforeEach(() => {
-			const mockDataCleaner = new DataCleaner
-			wrapper.setState({ dataCleaner: mockDataCleaner})
-		})
-
 		it('should call getMovie', async () => {
-			const spy = spyOn(wrapper.state().dataCleaner, 'getMovie')
+			const spy = spyOn(DataCleaner, 'getMovie')
 			await wrapper.instance().getFilm()
 			await expect(spy).toHaveBeenCalled()
 		})
 
 		it('should setState', async () => {
-			const spy = spyOn(wrapper.state().dataCleaner, 'getMovie')
-			expected = await wrapper.state().dataCleaner.getMovie()
+			const spy = spyOn(DataCleaner, 'getMovie')
+			expected = await DataCleaner.getMovie()
 			await wrapper.instance().getFilm()
 			await expect(wrapper.state().films).toEqual(expected)
 		})
 	})
 
 	describe('getPeople', () => {
-		beforeEach(() => {
-			const mockDataCleaner = new DataCleaner
-			wrapper.setState({ dataCleaner: mockDataCleaner})
-		})
-
 		it('should call getPerson', async () => {
-			const spy = spyOn(wrapper.state().dataCleaner, 'getPerson')
+			const spy = spyOn(DataCleaner, 'getPerson')
 			await wrapper.instance().getPeople()
 			await expect(spy).toHaveBeenCalled()
 		})
 
 		it('should setState', async () => {
-			const spy = spyOn(wrapper.state().dataCleaner, 'getPerson')
-			expected = await wrapper.state().dataCleaner.getPerson()
+			const spy = spyOn(DataCleaner, 'getPerson')
+			expected = await DataCleaner.getPerson()
 			await wrapper.instance().getPeople()
 			await expect(wrapper.state().people).toEqual(expected)
 		})
 	})
 
 	describe('getPlanets', () => {
-		beforeEach(() => {
-			const mockDataCleaner = new DataCleaner
-			wrapper.setState({ dataCleaner: mockDataCleaner})
-		})
-
 		it('should call getPlanet', async () => {
-			const spy = spyOn(wrapper.state().dataCleaner, 'getPlanet')
+			const spy = spyOn(DataCleaner, 'getPlanet')
 			await wrapper.instance().getPlanets()
 			await expect(spy).toHaveBeenCalled()
 		})
 
 		it('should setState', async () => {
-			const spy = spyOn(wrapper.state().dataCleaner, 'getPlanet')
-			expected = await wrapper.state().dataCleaner.getPlanet()
+			const spy = spyOn(DataCleaner, 'getPlanet')
+			expected = await DataCleaner.getPlanet()
 			await wrapper.instance().getPlanets()
 			await expect(wrapper.state().planets).toEqual(expected)
 		})
 	})
 
 	describe('getVehicles', () => {
-		beforeEach(() => {
-			const mockDataCleaner = new DataCleaner
-			wrapper.setState({ dataCleaner: mockDataCleaner})
-		})
-
 		it('should call getVehicle', async () => {
-			const spy = spyOn(wrapper.state().dataCleaner, 'getVehicle')
+			const spy = spyOn(DataCleaner, 'getVehicle')
 			await wrapper.instance().getVehicles()
 			await expect(spy).toHaveBeenCalled()
 		})
 
 		it('should setState', async () => {
-			const spy = spyOn(wrapper.state().dataCleaner, 'getVehicle')
-			expected = await wrapper.state().dataCleaner.getVehicle()
+			const spy = spyOn(DataCleaner, 'getVehicle')
+			expected = await DataCleaner.getVehicle()
 			await wrapper.instance().getVehicles()
 			await expect(wrapper.state().vehicles).toEqual(expected)
 		})
@@ -342,7 +322,7 @@ describe('App component', () => {
 					{"header": 'Language: ', "text": "Galactic Basic"}
 				] 
       }
-			wrapper.state().dataCleaner.getPerson = jest.fn().mockImplementation(() => Promise.resolve(
+			DataCleaner.getPerson = jest.fn().mockImplementation(() => Promise.resolve(
 		 		mockLuke))
 			await wrapper.instance().showPeople()
 		  await expect(wrapper.state().people).toEqual(mockLuke)
@@ -378,7 +358,7 @@ describe('App component', () => {
         }
 		})
 		it('sets vehicles to state ', async () => {
-			wrapper.state().dataCleaner.getVehicle = jest.fn().mockImplementation(() => Promise.resolve(
+			DataCleaner.getVehicle = jest.fn().mockImplementation(() => Promise.resolve(
 		 		mockVehicle))
 			await wrapper.instance().showVehicles()
 		  await expect(wrapper.state().vehicles).toEqual(mockVehicle)
@@ -406,7 +386,7 @@ describe('App component', () => {
 				"population": "2000000000", "climate": "temperate", 
 			"residents": 
 				["Leia Organa", "Bail Prestor Organa", "Raymus Antilles"]}
-			wrapper.state().dataCleaner.getPlanet = jest.fn().mockImplementation(() => Promise.resolve(
+			DataCleaner.getPlanet = jest.fn().mockImplementation(() => Promise.resolve(
 		 		mockPlanet))
 			await wrapper.instance().showPlanets()
 		  await expect(wrapper.state().planets).toEqual(mockPlanet)	

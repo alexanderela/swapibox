@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 class Sidebar extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			
+		this.state = {	
 		}
 	}
 
@@ -20,26 +19,21 @@ class Sidebar extends Component {
 	  		roman = romanNums[episodeNum]
 	  	}
 	  })
-
 	  return roman
 	}
 
 	render() {
 		const { films } = this.props
-
 		return (
 			<div className="Sidebar fade">
 				<div className="star-wars">
-					<div className="crawl">
-			    
+					<div className="crawl">	    
 			    <div className="title">
 			      <p>Episode {this.romanizeNum(films.episode_id)}</p>
 			      <h1 className="film-title">{films.title}</h1>
 			      <p>Released:  {films.date}</p>
 			    </div>
-			    
 			    <p>{films.opening_crawl}</p>
-
 			  	</div>
 				</div>
 			</div>

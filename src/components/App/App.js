@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Sidebar from '../Sidebar/Sidebar.js';
 import CardContainer from '../CardContainer/CardContainer.js';
-import DataCleaner from '../../DataCleaner.js';
-import FavoriteButton from '../FavoriteButton/FavoriteButton.js';
+import * as DataCleaner from '../../DataCleaner.js';
 import Nav from '../Nav/Nav.js';
 import ErrorPopup from '../ErrorPopup/ErrorPopup.js';
 
@@ -13,7 +12,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataCleaner: new DataCleaner(),
       films: {},
       people: [],
       vehicles: [],
@@ -81,24 +79,24 @@ class App extends Component {
   }
 
   getFilm = async () => {
-    const films = await this.state.dataCleaner.getMovie()
+    const films = await DataCleaner.getMovie()
     this.setState({ films })
   }
 
   getPeople = async () => {
-    const people = await this.state.dataCleaner.getPerson()
+    const people = await DataCleaner.getPerson()
     this.setState({ people })
     this.setLocalStorage('people', people)
   }
 
   getPlanets = async () => {
-    const planets = await this.state.dataCleaner.getPlanet()
+    const planets = await DataCleaner.getPlanet()
     this.setState({ planets })
     this.setLocalStorage('planets', planets)
   }
 
   getVehicles = async () => {
-    const vehicles = await this.state.dataCleaner.getVehicle()
+    const vehicles = await DataCleaner.getVehicle()
     this.setState({ vehicles })
     this.setLocalStorage('vehicles', vehicles)
   }
@@ -124,7 +122,6 @@ class App extends Component {
   }
 
   showPeople = async (e) => {  
-    const { people, peopleSelected } = this.state
     if (!localStorage.people) {
       await this.getPeople()
     } else if (localStorage.people) {
@@ -141,7 +138,6 @@ class App extends Component {
   }
   
   showVehicles = async (e) => {
-    const { vehicles, vehiclesSelected } = this.state
     if (!localStorage.vehicles) {
       await this.getVehicles()
     } else if (localStorage.vehicles) {
@@ -158,7 +154,6 @@ class App extends Component {
   }
 
   showPlanets = async (e) => {
-    const { planets, planetsSelected } = this.state
     if (!localStorage.planets) {
       await this.getPlanets()
     } else if (localStorage.planets) {
@@ -180,12 +175,7 @@ class App extends Component {
             people, 
             vehicles, 
             planets, 
-            peopleSelected, 
-            planetsSelected, 
-            vehiclesSelected, 
             favorites, 
-            scroll,
-            favoritesSelected,
             showErrorPopup
           } = this.state
 

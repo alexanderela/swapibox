@@ -33,11 +33,6 @@
   margin: 16px 0px;
   padding: 0px;
   padding-left: 0px;
-/*  transition: 
-    color 0.2s ease, 
-    padding 0.2s ease, 
-    text-shadow 0.2s ease,
-    width 0.5s ease;*/
   width: 12rem;
 }
 
@@ -111,6 +106,23 @@
   }
   .favorites-count {
     width: 0.5rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .Nav {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .cat-button {
+    font-size: 2rem;
+    font-weight: 600;
+    height: 3rem;
+    margin: 8px 0px;
+    padding: 0px;
+    padding-left: 0px;
+    width: 12rem;
   }
 }
 

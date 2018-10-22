@@ -131,8 +131,9 @@ ShallowWrapper {
           </h3>
           <button
             className="fav-btn 
-		    		fav-btn-inactive"
+						fav-btn-inactive"
             onClick={[Function]}
+            type="submit"
           >
             <i
               className="fas fa-jedi"
@@ -197,8 +198,9 @@ ShallowWrapper {
             </h3>,
             <button
               className="fav-btn 
-		    		fav-btn-inactive"
+						fav-btn-inactive"
               onClick={[Function]}
+              type="submit"
             >
               <i
                 className="fas fa-jedi"
@@ -229,8 +231,9 @@ ShallowWrapper {
                 className="fas fa-jedi"
               />,
               "className": "fav-btn 
-		    		fav-btn-inactive",
+						fav-btn-inactive",
               "onClick": [Function],
+              "type": "submit",
             },
             "ref": null,
             "rendered": Object {
@@ -399,8 +402,9 @@ ShallowWrapper {
             </h3>
             <button
               className="fav-btn 
-		    		fav-btn-inactive"
+						fav-btn-inactive"
               onClick={[Function]}
+              type="submit"
             >
               <i
                 className="fas fa-jedi"
@@ -465,8 +469,9 @@ ShallowWrapper {
               </h3>,
               <button
                 className="fav-btn 
-		    		fav-btn-inactive"
+						fav-btn-inactive"
                 onClick={[Function]}
+                type="submit"
               >
                 <i
                   className="fas fa-jedi"
@@ -497,8 +502,9 @@ ShallowWrapper {
                   className="fas fa-jedi"
                 />,
                 "className": "fav-btn 
-		    		fav-btn-inactive",
+						fav-btn-inactive",
                 "onClick": [Function],
+                "type": "submit",
               },
               "ref": null,
               "rendered": Object {

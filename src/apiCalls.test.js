@@ -1,5 +1,5 @@
 import React from 'react';
-import fetchData from './apiCalls';
+import * as API from './apiCalls';
 
 describe('fetchData function', () => {
   it('calls fetch with the correct parameters', async () => {
@@ -10,7 +10,7 @@ describe('fetchData function', () => {
         json: () => Promise.resolve()
       }))
       //Execution
-      await fetchData(expected)
+      await API.fetchData(expected)
       //Expectation
       expect(window.fetch).toHaveBeenCalledWith(expected)
     })
@@ -24,6 +24,6 @@ describe('fetchData function', () => {
         json: () => Promise.resolve()
       }))
       //Expectation
-      await expect(fetchData(mockUrl)).rejects.toEqual(expected)
+      await expect(API.fetchData(mockUrl)).rejects.toEqual(expected)
     })
 }) 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Nav.css'
 import FavoriteButton from '../FavoriteButton/FavoriteButton.js';
 import PropTypes from 'prop-types';
@@ -73,7 +73,7 @@ class Nav extends Component {
 	}
 
 render() {
-	const { showPeople, showVehicles, showPlanets, favorites, showFavorites, toggleErrorPopup } = this.props
+	const { favorites } = this.props
 	const { peopleSelected, planetsSelected, vehiclesSelected, favoritesSelected } = this.state
 
 	return(
